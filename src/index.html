@@ -61,8 +61,82 @@
   <body>
     <section
       style="background-image: url('/public/images/bg.webp')"
-      class="pt-[245px]"
+      class="pt-[245px] relative"
     >
+      <header class="absolute top-0 left-0 z-50 pt-12 pb-10 px-20 w-full">
+        <nav class="flex justify-between items-center relative z-50">
+          <a href="/" class="">
+            <img src="/public/images/logo.webp" alt="" />
+          </a>
+
+          <ul class="flex items-center gap-5">
+            <li>
+              <a href="#" class="cursor-pointer inline-block">
+                <div class="flex items-center gap-1">
+                  <img src="/public/images/book.webp" alt="" />
+                  <div class="flex flex-col">
+                    <p class="text-white text-2xl font-bold uppercase">
+                      FORUMS
+                    </p>
+                    <p class="text-lg text-orange">Player Discussions</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="cursor-pointer inline-block">
+                <div class="flex items-center gap-1">
+                  <img src="/public/images/trophy.webp" alt="" />
+                  <div class="flex flex-col">
+                    <p class="text-white text-2xl font-bold uppercase">
+                      HIGHSCORES
+                    </p>
+                    <p class="text-lg text-orange">Player Rankings</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="cursor-pointer inline-block">
+                <div class="flex items-center gap-1">
+                  <img src="/public/images/box.webp" alt="" />
+                  <div class="flex flex-col">
+                    <p class="text-white text-2xl font-bold uppercase">VOTE</p>
+                    <p class="text-lg text-orange">Bonus Rewards</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="cursor-pointer inline-block">
+                <div class="flex items-center gap-1">
+                  <img src="/public/images/stone.webp" alt="" />
+                  <div class="flex flex-col">
+                    <p class="text-white text-2xl font-bold uppercase">STORE</p>
+                    <p class="text-lg text-orange">Donation Store</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="cursor-pointer inline-block">
+                <div class="flex items-center gap-1">
+                  <img src="/public/images/plant.webp" alt="" />
+                  <div class="flex flex-col">
+                    <p class="text-white text-2xl font-bold uppercase">
+                      DOWNLOAD
+                    </p>
+                    <p class="text-lg text-orange">Desktop & Mobile</p>
+                  </div>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- bg -->
+        <div class="backdrop-blur absolute inset-0 bg-white/10 z-0"></div>
+      </header>
       <div class="flex flex-col items-center">
         <img src="/public/images/name.webp" alt="" />
         <p class="text-orange text-center max-w-[710px] text-[26px] leading-8">
