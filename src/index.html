@@ -11,6 +11,7 @@
       rel="stylesheet"
     />
     <link href="/dist/output.css" rel="stylesheet" />
+    <script src="./index.js" defer></script>
   </head>
   <body>
     <section
@@ -31,21 +32,99 @@
         </button>
       </div>
 
-      <div class="mt-[100px] h-[300px]">
+      <div class="mt-[100px] h-[300px] flex justify-center items-center">
         <!-- slider -->
         <div></div>
 
         <!-- tab -->
 
-        <div class="bg-gray/90 p-[30px]">
+        <div
+          id="TabWrapper"
+          data-active-tab="News"
+          class="group bg-gray/90 p-[30px] w-[550px] h-[313px] flex flex-col gap-5"
+        >
           <!-- tabs -->
-          <ul>
-            <li><button>News</button></li>
+          <ul
+            class="border-b-[.5px] border-white/25 flex justify-between items-center"
+          >
+            <!-- news -->
+            <li>
+              <button
+                data-active="true"
+                onclick="setTab(this,'News')"
+                class="tab p-4 pt-0 data-[active='true']:text-white text-lg font-bold uppercase text-white/25 border-b border-transparent data-[active='true']:border-b-orange"
+              >
+                News
+              </button>
+            </li>
+            <!-- forums activity -->
+            <li>
+              <button
+                data-active="false"
+                onclick="setTab(this,'ForumsActivity')"
+                class="tab p-4 pt-0 data-[active='true']:text-white text-lg font-bold uppercase text-white/25 border-b border-transparent data-[active='true']:border-b-orange"
+              >
+                Forums Activity
+              </button>
+            </li>
+            <!-- dev logs -->
+            <li>
+              <button
+                data-active="false"
+                onclick="setTab(this,'DevLogs')"
+                class="tab p-4 pt-0 data-[active='true']:text-white text-lg font-bold uppercase text-white/25 border-b border-transparent data-[active='true']:border-b-orange"
+              >
+                Dev Logs
+              </button>
+            </li>
           </ul>
 
           <!-- tab content -->
 
-          <div></div>
+          <!-- news content -->
+          <div
+            class="news-content hidden group-data-[active-tab='News']:flex flex-col gap-2.5 border-b-[.5px] border-white/25"
+          >
+            <!-- news-item -->
+            <div class="news-item flex justify-between items-center">
+              <p class="text-white font-medium text-base">
+                <span class="text-aqua">[UPDATE]</span> Title Of News Here...
+              </p>
+              <p class="text-white/25">07-08-2023</p>
+            </div>
+
+            <!-- news-item -->
+            <div class="news-item flex justify-between items-center">
+              <p class="text-white font-medium text-base">
+                <span class="text-blue">[UPDATE]</span> Title Of News Here...
+              </p>
+              <p class="text-white/25">07-08-2023</p>
+            </div>
+
+            <!-- news-item -->
+            <div class="news-item flex justify-between items-center">
+              <p class="text-white font-medium text-base">
+                <span class="text-orange">[UPDATE]</span> Title Of News Here...
+              </p>
+              <p class="text-white/25">07-08-2023</p>
+            </div>
+
+            <!-- news-item -->
+            <div class="news-item flex justify-between items-center">
+              <p class="text-white font-medium text-base">
+                <span class="text-aqua">[UPDATE]</span> Title Of News Here...
+              </p>
+              <p class="text-white/25">07-08-2023</p>
+            </div>
+
+            <!-- news-item -->
+            <div class="news-item flex justify-between items-center">
+              <p class="text-white font-medium text-base">
+                <span class="text-orange">[UPDATE]</span> Title Of News Here...
+              </p>
+              <p class="text-white/25">07-08-2023</p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
