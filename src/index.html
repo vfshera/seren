@@ -11,6 +11,51 @@
       rel="stylesheet"
     />
     <link href="/dist/output.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide-core.min.css"
+    />
+
+    <script>
+      // slide number generator / extension
+      function SlideNumber(Splide, Components) {
+        // get the arrows element
+        const { arrows } = Components.Elements;
+
+        // checks if there is an element with .page__number class
+        const counter = arrows.querySelector(".page__number");
+
+        function mount() {
+          if (!counter) {
+            console.log("Creating Element");
+            counter = document.createElement("div");
+            counter.classList.add(".page__number");
+            counter.style.textAlign = "center";
+            counter.style.marginTop = "0.5em";
+
+            arrows.insertBefore(counter, arrows.lastElementChild);
+          }
+
+          update();
+          Splide.on("move", update);
+        }
+
+        function update() {
+          counter.textContent = `${Splide.index + 1}/${Splide.length}`;
+        }
+
+        return {
+          mount,
+        };
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        new Splide(".splide", {
+          pagination: false,
+        }).mount({ SlideNumber });
+      });
+    </script>
     <script src="./index.js" defer></script>
   </head>
   <body>
@@ -32,16 +77,75 @@
         </button>
       </div>
 
-      <div class="mt-[100px] h-[300px] flex justify-center items-center">
+      <div class="mt-[100px] h-[313px] flex justify-center gap-16 items-center">
         <!-- slider -->
-        <div></div>
+        <div class="h-full w-[550px] rounded-[10px]">
+          <div class="splide relative" role="group" aria-label="Slider">
+            <div class="splide__track relative">
+              <ul class="splide__list">
+                <li class="splide__slide">
+                  <img src="/public/images/slide.webp" alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img src="/public/images/slide.webp" alt="" />
+                </li>
+                <li class="splide__slide">
+                  <img src="/public/images/slide.webp" alt="" />
+                </li>
+              </ul>
+            </div>
+            <!-- arrows -->
+            <div
+              class="splide__arrows absolute bottom-4 right-4 flex items-center gap-4 bg-gray"
+            >
+              <button
+                class="splide__arrow splide__arrow--prev grid place-items-center rounded-full bg-transparent"
+              >
+                <svg
+                  class="text-orange h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="--darkreader-inline-stroke: currentColor"
+                  data-darkreader-inline-stroke=""
+                >
+                  <polyline points="15 18 9 12 15 6"></polyline>
+                </svg>
+              </button>
+              <!-- page number will be injected here -->
+              <div class="page__number text-orange text-lg"></div>
+              <button
+                class="splide__arrow splide__arrow--next grid place-items-center rounded-full"
+              >
+                <svg
+                  class="text-orange h-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="--darkreader-inline-stroke: currentColor"
+                  data-darkreader-inline-stroke=""
+                >
+                  <polyline points="9 18 15 12 9 6"></polyline>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
 
-        <!-- tab -->
+        <!-- tabs wrapper -->
 
         <div
           id="TabWrapper"
           data-active-tab="News"
-          class="group bg-gray/90 p-[30px] w-[550px] h-[313px] flex flex-col gap-5"
+          class="group bg-gray/90 p-[30px] w-[550px] h-full flex flex-col gap-5 rounded-[10px]"
         >
           <!-- tabs -->
           <ul
